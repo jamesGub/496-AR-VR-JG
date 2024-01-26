@@ -1,0 +1,11 @@
+# ninja log v5
+153	1887	7280061011052777	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e5aabdb9757e9baf
+68	3395	7280061027715497	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	4156ddf91f134834
+91	3403	7280061028518286	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	73b9c261d86ff57f
+50	3476	7280061029822663	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	e3dcf03b55bf25c4
+1890	3485	7280061027397682	C:/Users/16313/OneDrive/git-repos/496-AR-VR-JG/AR_TEST_496/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/u1e3d416/obj/arm64-v8a/libswappywrapper.so	ecf7fc95b897038
+132	3856	7280061031112750	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	ea2e9bfa6b92ba6e
+19	3887	7280061031016593	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ea67203f15dce917
+35	4060	7280061035481018	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	36994550c0a8b2eb
+2	4306	7280061038135536	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2d48079178dd897d
+4307	4623	7280061040515268	C:/Users/16313/OneDrive/git-repos/496-AR-VR-JG/AR_TEST_496/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/u1e3d416/obj/arm64-v8a/libgame.so	e52377b89642cd21
