@@ -20,9 +20,9 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientGroundColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -326,7 +326,7 @@ Canvas:
   m_GameObject: {fileID: 256841768}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 413495484}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -334,11 +334,11 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1703000143
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &256841772
 RectTransform:
@@ -1299,7 +1299,7 @@ GameObject:
   - component: {fileID: 527666295}
   - component: {fileID: 527666297}
   - component: {fileID: 527666296}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1345,7 +1345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Yayyy, your score!: '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2304,7 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RaycastPrefab: {fileID: 0}
+  m_RaycastPrefab: {fileID: 2092872244}
 --- !u!114 &2092872250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,7 +2317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619b071425cb2d64f84025603e61f8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnItem: {fileID: 0}
+  spawnItem: {fileID: 8364011929445023115, guid: 0bdde2ea02c6cc047b7f4e7b24798db0, type: 3}
+  scoreText: {fileID: 527666296}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2326,5 +2327,5 @@ SceneRoots:
   - {fileID: 2092872248}
   - {fileID: 1168414267}
   - {fileID: 125770447}
-  - {fileID: 256841772}
   - {fileID: 1488064737}
+  - {fileID: 256841772}

@@ -39,6 +39,7 @@ public class RaycastControl : MonoBehaviour
             if (Physics.Raycast(r,out p_Hit)) { 
                 //Score
                 if(p_Hit.transform.gameObject.CompareTag("Sphere")) { 
+                    Debug.Log("hit");
                     score += 1;
                     scoreText.text = "This is your score!!! :D: " + score.ToString();  
                 }
