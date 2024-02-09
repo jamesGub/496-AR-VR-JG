@@ -3,29 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation; 
 using TMPro; 
+using UnityEngine.EventSystems;
 
 public class RaycastControl : MonoBehaviour
 {
     public GameObject spawnItem; 
-    public TextMeshProUGUI scoreText; 
+    public TextMeshProUGUI scoreFullText;
+    public TextMeshProUGUI loveFullText; 
+    public float scoreFullRate = 0.3f; 
+    public float scoreLoveRate = 0.4f; 
     ARRaycastManager ar_Manager; 
     Camera cam;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
     RaycastHit p_Hit; 
     GameObject spawnedObject; 
-    int score;
+    float scoreFull;
+    float scoreLove; 
+    char state = 'i';
+    private float timeInState = 0; 
 
     void Start()
     {
         ar_Manager = GetComponent<ARRaycastManager>(); 
         cam = GetComponentInChildren<Camera>(); 
-        score = 0; 
+        scoreFull = 0; 
+        scoreLove = 0; 
          
     }
 
     void Update()
     {
+        scoreFull -= Time.deltaTime * scoreFullRate;
+        scoreLove -= Time.deltaTime * scoreLoveRate; 
+
+        if (state == 'f' || state == 'p') { 
+            
+            timeInState += Time.deltaTime; 
+            if (timeInState >= 5) { 
+                state = 'i'; 
+
+            }
+        }
+
         if (Input.touchCount > 0 || Input.GetMouseButtonDown(0)) { 
+            
+            if (EventSystem.current.IsPointerOverGameObject()) {
+                print("UI Touch Detected"); 
+                return; 
+            }
             Vector3 position; 
             if (Input.touchCount > 0) { 
                 position = Input.GetTouch(0).position; 
@@ -40,8 +65,17 @@ public class RaycastControl : MonoBehaviour
                 //Score
                 if(p_Hit.transform.gameObject.CompareTag("Sphere")) { 
                     Debug.Log("hit");
-                    score += 1;
-                    scoreText.text = "This is your score!!! :D: " + score.ToString();  
+                    //if in feed state
+                    if (state == 'f') { 
+                    scoreFull += 1;
+                    scoreFull.Mathf.Clamp(scoreLove, 0, 100); 
+                    scoreFullText.text = "This is your score!!! :D: " + Mathf.Round(scoreFull).ToString();  
+                    } else if (state == 'p') { 
+                        scoreLove += 1; 
+                        scoreLove.Mathf.Clamp(scoreLove, 0, 100); 
+                        loveFullText.text = "Love: " + Mathf.Round(scoreLove).ToString(); 
+                        
+                    }
                 }
            
             }
@@ -59,5 +93,17 @@ public class RaycastControl : MonoBehaviour
 
             }
         }
+
+
+    }
+
+    public void EnterFeedState() { 
+        state = 'f'; 
+        timeInState = 0;
+    }
+
+    public void EnterPetState() { 
+        state = 'p';
+        timeInState = 0; 
     }
 }
