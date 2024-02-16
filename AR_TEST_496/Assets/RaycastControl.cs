@@ -10,6 +10,7 @@ public class RaycastControl : MonoBehaviour
     public GameObject spawnItem; 
     public TextMeshProUGUI scoreFullText;
     public TextMeshProUGUI loveFullText; 
+    Animator KittyAnim; 
     public float scoreFullRate = 0.3f; 
     public float scoreLoveRate = 0.4f; 
     ARRaycastManager ar_Manager; 
@@ -41,6 +42,7 @@ public class RaycastControl : MonoBehaviour
             timeInState += Time.deltaTime; 
             if (timeInState >= 5) { 
                 state = 'i'; 
+                KittyAnim.SetTrigger("EnterIdle"); 
 
             }
         }
@@ -68,11 +70,11 @@ public class RaycastControl : MonoBehaviour
                     //if in feed state
                     if (state == 'f') { 
                     scoreFull += 1;
-                    scoreFull.Mathf.Clamp(scoreLove, 0, 100); 
+                    scoreFull = Mathf.Clamp(scoreLove, 0, 100); 
                     scoreFullText.text = "This is your score!!! :D: " + Mathf.Round(scoreFull).ToString();  
                     } else if (state == 'p') { 
                         scoreLove += 1; 
-                        scoreLove.Mathf.Clamp(scoreLove, 0, 100); 
+                        scoreLove = Mathf.Clamp(scoreLove, 0, 100); 
                         loveFullText.text = "Love: " + Mathf.Round(scoreLove).ToString(); 
                         
                     }
@@ -87,9 +89,12 @@ public class RaycastControl : MonoBehaviour
                 Pose hitPose = hits[0].pose; 
                 if (spawnedObject == null) { 
                 spawnedObject = Instantiate(spawnItem, hitPose.position, hitPose.rotation);
+                KittyAnim = spawnedObject.GetComponentInChildren<Animator>(); 
                 } else { 
                     spawnedObject.transform.position = hitPose.position;  
                 }
+                Vector3 lookAtTarget = new Vector3(cam.transform.position.x, spawnedObject.transform.position.y, cam.transform.position.z);
+                spawnedObject.transform.LookAt(cam.transform);
 
             }
         }
@@ -100,10 +105,12 @@ public class RaycastControl : MonoBehaviour
     public void EnterFeedState() { 
         state = 'f'; 
         timeInState = 0;
+        KittyAnim.SetTrigger("EnterFeed"); 
     }
 
     public void EnterPetState() { 
         state = 'p';
         timeInState = 0; 
+        KittyAnim.SetTrigger("EnterPet");
     }
 }
