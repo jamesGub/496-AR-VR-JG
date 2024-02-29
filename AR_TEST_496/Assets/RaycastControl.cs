@@ -13,13 +13,14 @@ public class RaycastControl : MonoBehaviour
     Animator KittyAnim; 
     public float scoreFullRate = 0.3f; 
     public float scoreLoveRate = 0.4f; 
+    public float timeToSpendInState = 5;
     ARRaycastManager ar_Manager; 
     Camera cam;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
     RaycastHit p_Hit; 
     GameObject spawnedObject; 
-    float scoreFull;
-    float scoreLove; 
+    private float scoreFull;
+    private float scoreLove; 
     char state = 'i';
     private float timeInState = 0; 
 
@@ -27,20 +28,23 @@ public class RaycastControl : MonoBehaviour
     {
         ar_Manager = GetComponent<ARRaycastManager>(); 
         cam = GetComponentInChildren<Camera>(); 
-        scoreFull = 0; 
-        scoreLove = 0; 
+        scoreFull = 100; 
+        scoreLove = 100; 
          
     }
 
     void Update()
     {
-        scoreFull -= Time.deltaTime * scoreFullRate;
-        scoreLove -= Time.deltaTime * scoreLoveRate; 
+        if (state == 'i') { 
+            scoreFull -= Time.deltaTime * scoreFullRate;
+            scoreLove -= Time.deltaTime * scoreLoveRate;
+        }
+         
 
         if (state == 'f' || state == 'p') { 
             
             timeInState += Time.deltaTime; 
-            if (timeInState >= 5) { 
+            if (timeInState >= timeToSpendInState) { 
                 state = 'i'; 
                 KittyAnim.SetTrigger("EnterIdle"); 
 
@@ -70,12 +74,10 @@ public class RaycastControl : MonoBehaviour
                     //if in feed state
                     if (state == 'f') { 
                     scoreFull += 1;
-                    scoreFull = Mathf.Clamp(scoreLove, 0, 100); 
-                    scoreFullText.text = "This is your score!!! :D: " + Mathf.Round(scoreFull).ToString();  
+                   
                     } else if (state == 'p') { 
                         scoreLove += 1; 
-                        scoreLove = Mathf.Clamp(scoreLove, 0, 100); 
-                        loveFullText.text = "Love: " + Mathf.Round(scoreLove).ToString(); 
+                       
                         
                     }
                 }
@@ -84,7 +86,7 @@ public class RaycastControl : MonoBehaviour
             
             //AR Ray
           
-        if (ar_Manager.Raycast(r, hits)) 
+            if (ar_Manager.Raycast(r, hits)) 
             { 
                 Pose hitPose = hits[0].pose; 
                 if (spawnedObject == null) { 
@@ -94,11 +96,23 @@ public class RaycastControl : MonoBehaviour
                     spawnedObject.transform.position = hitPose.position;  
                 }
                 Vector3 lookAtTarget = new Vector3(cam.transform.position.x, spawnedObject.transform.position.y, cam.transform.position.z);
-                spawnedObject.transform.LookAt(cam.transform);
+                spawnedObject.transform.LookAt(lookAtTarget);
 
             }
         }
+        
+        scoreFull = Mathf.Clamp(scoreLove, 0, 100); 
+        scoreLove = Mathf.Clamp(scoreLove, 0, 100); 
 
+
+    }
+
+    void SetFullScoreText() { 
+        scoreFullText.text = "This is your score!!! :D: " + Mathf.Round(scoreFull).ToString();
+    }
+
+    void SetPetScoreText() { 
+        loveFullText.text = "Love: " + Mathf.Round(scoreLove).ToString(); 
 
     }
 
