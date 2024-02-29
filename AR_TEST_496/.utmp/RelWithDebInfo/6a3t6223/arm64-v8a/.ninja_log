@@ -1,0 +1,22 @@
+# ninja log v5
+132	630	7309470629385709	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1c370fec3b31f3ea
+18	2534	7309470649181719	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	161e475f5f4b034b
+633	1965	7309470638937315	C:/Users/user1/OneDrive/Documents/496-AR-VR-JG/AR_TEST_496/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6a3t6223/obj/arm64-v8a/libswappywrapper.so	df7d87a0004b946a
+33	2199	7309470645698645	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	37d9c96ce71e7c79
+49	1851	7309470642124818	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	eb30ff06e9ef62e1
+2	1881	7309470642271774	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	33042fe63dff9a54
+81	1882	7309470641896797	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9635f3c4aaf6caca
+100	2378	7309470647578392	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2dc66eeca6503619
+64	2489	7309470648760151	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	659d1b9f4aa4aaf
+2535	2906	7309470651724708	C:/Users/user1/OneDrive/Documents/496-AR-VR-JG/AR_TEST_496/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6a3t6223/obj/arm64-v8a/libgame.so	e55c635076c108
+71	588	7309491944820914	build.ninja	259842eee1457198
+505	947	7309491954665914	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1c370fec3b31f3ea
+948	2037	7309491962931926	C:/Users/user1/OneDrive/Documents/496-AR-VR-JG/AR_TEST_496/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6a3t6223/obj/arm64-v8a/libswappywrapper.so	df7d87a0004b946a
+332	2437	7309491969509986	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9635f3c4aaf6caca
+439	2440	7309491969540883	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	33042fe63dff9a54
+466	2534	7309491970550936	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	eb30ff06e9ef62e1
+380	2647	7309491971704188	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2dc66eeca6503619
+405	2720	7309491972420951	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	37d9c96ce71e7c79
+312	3015	7309491975466932	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	659d1b9f4aa4aaf
+15	3137	7309491976649036	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	161e475f5f4b034b
+3137	3470	7309491979051353	C:/Users/user1/OneDrive/Documents/496-AR-VR-JG/AR_TEST_496/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6a3t6223/obj/arm64-v8a/libgame.so	e55c635076c108
